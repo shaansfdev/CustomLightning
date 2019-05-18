@@ -1,0 +1,37 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	Testing my comp
+    
+    <div class="slds-button-group" role="group">
+        <div>
+            <button class="slds-button slds-button_neutral slds-button_first">First</button>
+        </div>
+        <div>
+            <button class="slds-button slds-button_neutral slds-button_last">Last</button>
+        </div>
+    </div>
+    
+    <div class="slds-form-element">
+        <div class="slds-form-element__control">
+            <div class="slds-checkbox">
+                <input type="checkbox" name="options" id="checkbox-2" value="checkbox-2" />
+                <label class="slds-checkbox__label" for="checkbox-2">
+                    <span class="slds-checkbox_faux"></span>
+                    <span class="slds-form-element__label">Checkbox Label</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="slds-form-element">
+        <label class="slds-checkbox_toggle slds-grid">
+            <span class="slds-form-element__label slds-m-bottom_none">Toggle Label</span>
+            <input name="checkbox-toggle-2" type="checkbox" aria-describedby="checkbox-toggle-2" value="checkbox-toggle-2" />
+            <span id="checkbox-toggle-2" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                <span class="slds-checkbox_on">Enabled</span>
+                <span class="slds-checkbox_off">Disabled</span>
+            </span>
+        </label>
+    </div>
+</aura:component>

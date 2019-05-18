@@ -1,0 +1,65 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <br></br>**************************************************************<br></br>
+    <div class="slds-notify_container slds-is-relative">
+        <div class="slds-notify slds-notify_toast slds-theme_error" role="alert">
+            <div class="slds-notify__content">
+                <h2 class="slds-text-heading_small">how to make this responsive</h2>
+            </div>
+        </div>
+    </div>      
+    <br></br>**************************************************************<br></br><br></br><br></br>
+    
+    
+    <div class="slds-card__body">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate"  title="SLDS Truncate not clear">Serial Numberrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div  class="slds-truncate" title="Serial Numberrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr">Serial Numberrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div>
+                    </th>
+                </tr>  
+                 
+            </thead>
+            <tbody>
+            	<tr class="slds-hint-parent">
+                	<td>
+                    	<div>Shankar</div>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        
+    </div>
+    
+    
+    <br></br>**************************************************************<br></br><br></br><br></br>           
+    
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col" style="background:red;height:100px;">
+            <span>1</span>
+        </div>
+        <div class="slds-col" style="background:yellow;height:100px;">
+            <span>2</span>
+        </div>
+        <div class="slds-col" style="background:green;height:100px;">
+            <span>3</span>
+        </div>
+    </div>
+    <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+        <div class="slds-size_1-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">.slds-Shankar</div>
+        </div>
+        <div class="slds-size_1-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">.slds-Veena</div>
+        </div>
+        <div class="slds-size_2-of-2">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">.slds-size_2-of-2</div>
+        </div>
+    </div>
+    
+</aura:component>

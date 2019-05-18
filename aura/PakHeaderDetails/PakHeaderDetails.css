@@ -1,0 +1,6 @@
+.THIS .slds-icon{width:0.5rem; height:0.5rem;}
+.THIS .slds-form__row{min-height:5px; padding-bottom:0rem;}
+.THIS .slds-form__row:first-child{padding-bottom:0px;padding-top:1rem;}
+.THIS h1{font-size:24px;}
+.THIS .cardHeader .slds-icon{width:24px; height:24px;}
+.THIS .slds-card__header-title span{font-weight:bold;}

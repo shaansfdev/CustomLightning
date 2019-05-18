@@ -1,0 +1,67 @@
+<aura:component controller="CaseDataTableController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="PicklistString" type="Map"></aura:attribute>
+    <aura:attribute name="CaseList" type="list"></aura:attribute>
+     <aura:attribute name="mapvalues" type="Map" default="{}"/>
+    <aura:handler value="{!this}" name="init" action="{!c.getCaseField}"></aura:handler>
+    <lightning:select  aura:id="select" name="select1" label="Select Priority" required="true" onchange="{!c.onChange}">
+        <option value="None">None</option>
+        <aura:iteration var="item" items="{!v.PicklistString.Priority}">
+            <option value="{!item}">{!item}</option>
+        </aura:iteration>
+    </lightning:select> <br></br><br></br>
+    <lightning:select  aura:id="select2" name="select1" label="Select Status" required="true" onchange="{!c.onChange}">
+        <option value="None">None</option>
+        <aura:iteration var="item" items="{!v.PicklistString.Status}">
+            <option value="{!item}">{!item}</option>
+        </aura:iteration>
+    </lightning:select> <br></br><br></br>
+    <lightning:select  aura:id="select3" name="select1" label="Select Type" required="true" onchange="{!c.onChange}">
+        <option value="None">None</option>
+        <aura:iteration var="item" items="{!v.PicklistString.Type}">
+            <option value="{!item}">{!item}</option>
+        </aura:iteration>
+    </lightning:select> <br></br><br></br>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Case ID">Case Id</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="CaseNumber">CaseNumber</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Case Type">Case Type</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Case Status">Case Status</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Case Priority">Case Priority</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration var="item" items="{!v.CaseList}">
+            <tr class="slds-hint-parent">
+                <th data-label="Opportunity Name" scope="row">
+                    <div class="slds-truncate" title="Case ID"><a href="javascript:void(0);" tabindex="-1">{!item.Id}</a></div>
+                </th>
+                <td data-label="Account Name"> 
+                    <div class="slds-truncate" title="CaseNumber">{!item.CaseNumber}</div>
+                </td>
+                <td data-label="Close Date">
+                    <div class="slds-truncate" title="Case Type">{!item.Type}</div>
+                </td>
+                <td data-label="Prospecting">
+                    <div class="slds-truncate" title="Case Status">{!item.Status}</div>
+                </td>
+                <td data-label="Confidence">
+                    <div class="slds-truncate" title="Case Priority">{!item.Priority}</div>
+                </td>
+                
+            </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

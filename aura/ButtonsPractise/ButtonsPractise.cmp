@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<button class="slds-button">Button</button>
+    <div style="background-color:#16325c;padding:0.5rem">
+  <button class="slds-button slds-button_inverse">Inverse Button</button>
+</div>
+    <!-- check box menu item -->
+    <aura:attribute name="status" type="String[]" default="Open, Closed, Closed Won, Any"/>
+    <ui:menu>
+    <ui:menuTriggerLink aura:id="checkboxMenuLabel" label="Multiple selection"/>
+       <ui:menuList aura:id="checkboxMenu" class="checkboxMenu">
+        <aura:iteration items="{!v.status}" var="s">
+            <ui:checkboxMenuItem label="{!s}"/>
+            </aura:iteration>
+        </ui:menuList>
+    </ui:menu>
+    <!-- Input CheckBox -->
+    =================================================================
+    <aura:attribute name="myBool" type="Boolean" default="true"/>
+	<ui:inputCheckbox aura:id="checkbox" label="Select?" change="{!c.onCheck}"/>
+	<p>Selected:</p>
+	<p><ui:outputText class="result" aura:id="checkResult" value="false" /></p>
+	<p>The following checkbox uses a component attribute to bind its value.</p>
+	<ui:outputCheckbox aura:id="output" value="{!v.myBool}"/>
+</aura:component>

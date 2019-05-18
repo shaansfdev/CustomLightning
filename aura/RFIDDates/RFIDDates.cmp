@@ -1,0 +1,101 @@
+<aura:component 
+                controller="RFIDDates"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute type="List" name="RFIDDates" />
+    <aura:attribute type="List" name="copyRFIDDates" />
+    <aura:attribute name="searchKeyWord" type="String"/>
+    <aura:attribute name="showBackButton" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getRFIDDates}"></aura:handler>
+    
+    <div class="slds-card__body">
+        <!--<div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12 slds-p-top_large slds-p-left_small slds-p-bottom_xx-large slds-p-right_small">  
+            <lightning:input label="Global Search" type="search" />
+        </div>-->
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 slds-p-left_small slds-p-right_small">            
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12 slds-p-top_large slds-p-left_small slds-p-bottom_xx-large slds-p-right_small">         
+                <aura:if isTrue="{! v.showBackButton }">
+                    <lightning:button onclick="{!c.backToList}" variant="brand" label="Back To List"/>
+                </aura:if>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12 slds-p-left_small slds-p-right_small">  
+                <lightning:input label="Global Search" value="{! v.searchKeyWord }" type="search" />
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12 slds-p-top_large slds-p-left_small slds-p-bottom_xx-large slds-p-right_small">  
+                <lightning:button onclick="{!c.searchRecords}" variant="brand" label="Search" iconName="utility:search"/>
+            </div>
+        </div>
+        <aura:if isTrue="{! v.showBackButton }">
+            <aura:if isTrue="{! not(empty(v.RFIDDates)) }">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID">
+                                    <span>Name</span>
+                                </a>
+                            </th>
+                            <th class="" scope="col">
+                                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID">
+                                    <span>Account Name</span>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration var="RFID" items="{!v.RFIDDates}">
+                            <tr class="slds-hint-parent">
+                                <td data-label="date" scope="row">
+                                    <!--<lightning:button label="{!RFID.RFID_Records__c}" name="RFID" onclick="{!c.RedirectToRFIDCmp}"/>-->
+                                    <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID" >
+                                        <div class="slds-truncate" title="{!RFID.Name}">{!RFID.Name}</div>
+                                    </a>
+                                </td> 
+                                <td data-label="date" scope="row"> {!RFID.Account__r.Name}
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                <aura:set attribute="else">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-1">
+                        No Records Found!
+                    </div>
+                </aura:set>
+            </aura:if>
+            <aura:set attribute="else">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID">
+                                    <span>RFID Date</span>
+                                </a>
+                            </th>
+                            <th class="" scope="col">
+                                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID">
+                                    <span>Account Name</span>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration var="RFID" items="{!v.RFIDDates}">
+                            <tr class="slds-hint-parent">
+                                <td data-label="date" scope="row">
+                                    <!--<lightning:button label="{!RFID.RFID_Records__c}" name="RFID" onclick="{!c.RedirectToRFIDCmp}"/>-->
+                                    <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID" >
+                                        <div data-recId="{!RFID.Id}" class="slds-truncate" title="{!RFID.RFID_Records__c}" onclick="{!c.RedirectToRFIDCmp}">{!RFID.RFID_Records__c}</div>
+                                    </a>
+                                </td> 
+                                <td data-label="date" scope="row"> {!RFID.Account__r.Name}
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </aura:set>        
+        </aura:if>
+    </div>
+</aura:component>

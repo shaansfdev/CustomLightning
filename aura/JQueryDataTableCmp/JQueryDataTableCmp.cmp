@@ -1,0 +1,55 @@
+<aura:component controller="JQueryDataTable"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <ltng:require styles="{! $Resource.JqueryDataTable + '/DataTables-1.10.16/media/css/jquery.dataTables.css'}" 
+                  scripts="{! join(',',
+                           $Resource.Jquery1 ,
+                           $Resource.JqueryDataTable + '/DataTables-1.10.16/media/js/jquery.dataTables.js')}"
+                  			afterScriptsLoaded="{!c.scriptsLoaded}"></ltng:require>	
+    <aura:attribute type="List" name="lstPak"></aura:attribute>
+    <lightning:button label="Test" name="Test" onclick="{!c.callAction}"></lightning:button>
+    <aura:handler name="init" value="{!this}" action="{!c.getDataTable}"></aura:handler>
+    <table id="tableid" class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Close Date">Close Date</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Stage">Stage</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Confidence">Confidence</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Amount">Amount</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Contact">Contact</div>
+                </th>
+            </tr>
+        </thead>
+        <aura:iteration items="{!v.lstPak}" var="pak">
+            <tbody>
+                <tr class="slds-hint-parent">
+                    <th data-label="Opportunity Name" scope="row">
+                        <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);" tabindex="-1">{!pak.Name}</a></div>
+                    </th>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="Cloudhub">{!pak.Id}</div>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </aura:iteration>
+    </table>
+    
+    
+    
+    
+</aura:component>

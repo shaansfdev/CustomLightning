@@ -1,0 +1,190 @@
+<aura:component controller ="SObjectLightningController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <!-- HANDLERS START-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- HANDLERS END-->    
+    
+    <!-- ATTRIBUTES START-->  
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="FieldSet" type="string" default="PakHeaderDetailFields"/>
+    <aura:attribute name="ObjectName" type="string" default="PAK_Header__c"/>
+    <aura:attribute name="SObjectList" type="PAK_Header__c[]"/>
+    <aura:attribute name="RecordName" type="string"/>
+    <aura:attribute name="isApproval" type="boolean" default="false"/>
+    <aura:attribute name="approvalStatus" type="string" default=""/>
+    <aura:attribute name="comment" type="string" default=""/>
+    <!-- ATTRIBUTES END --> 
+    
+    <section class="detailsTab slds-card scrollFix">
+        <aura:if isTrue="{!v.isApproval}">
+            <div class="slds-card__header slds-text-align_right">
+                <button class="slds-button slds-button_brand" onclick="{! c.showApproveModal }">Approve</button>
+                <button class="slds-button slds-button_neutral" onclick="{! c.showRejectModal }">Reject</button>
+                
+            </div>
+        </aura:if>
+        <div class="slds-card__body">
+            <!--<div class="slds-form" role="list">
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label"><abbr class="slds-required" title="required">*</abbr>Assigned To</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>Jack Rogers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">Team Name</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>Salesforce Lightning Design System</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">Security Assessment Required?</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>False</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">Status</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>To do</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">Personalization Settings</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>Disable end user personalization</span>
+                                </div>
+                            </div>
+                        </div>                
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">No. of Team Members</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>200</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">SLA Serial Number</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>5367</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">SLA Expiration Date</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>1/1/2018</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__row">
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">Location</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>10.283, 54.293</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__item" role="listitem">
+                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                            <span class="slds-form-element__label">Selected Languages</span>
+                            <div class="slds-form-element__control">
+                                <div class="slds-form-element__static">
+                                    <span>Arabic, Chinese, English, German</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <c:FieldSetOutputRenderer recordId = '{! v.recordId }' FieldSet = '{! v.FieldSet }' ObjectName = '{! v.ObjectName }'></c:FieldSetOutputRenderer>
+            <!--<div class="myapp slds-m-top-large">
+                
+                <ul aura:id="detailView" class="slds-list-vertical slds-has-cards"></ul>
+                
+            </div>-->
+        </div>
+        <aura:if isTrue="{!v.isApproval}">
+            <div class="slds-card__header slds-text-align_right">
+                <button class="slds-button slds-button_brand" onclick="{! c.showApproveModal }">Approve</button>
+                <button class="slds-button slds-button_neutral" onclick="{! c.showRejectModal }">Reject</button>
+                
+            </div>
+        </aura:if>
+    </section>
+     a<br></br>
+    b<br></br>
+    c<br></br>
+    c<br></br>
+    <aura:iteration items="1,2,3,4,5,6,7,8,9,10,11,1,2,3,5,6,7,8,9,7,6,54,3,21,5,6,7,8,9,9543,3,23,232,32,8,5,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+                           6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6" var="item">
+        {!item}<br/>
+    </aura:iteration>
+
+    
+    <!--Filter PDCN Popup-->
+    
+    <div role="dialog" tabindex="-1" id="dvApproveReject" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_small slds-fade-in-open" style="display: none;">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <h2 id="" class="slds-text-heading_small slds-hyphenate">Approve or Reject</h2>
+            </header>         
+            <div class="slds-modal__content slds-p-around_small" id="modal-content-id-2">
+                <lightning:textarea label="Comment" value="{! v.comment }" />
+            </div>
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_brand" onclick="{! c.handleApproveOrReject }">Ok</button>
+                <button class="slds-button slds-button_neutral" onclick="{!c.hideModal}">Cancel</button>
+            </footer>
+        </div>
+    </div>
+       
+    <!--Filter PDCN Popup-->
+    
+    <!--Backdrop for screen freezing popup-->
+    
+    <div id="dvBackdrop" class="slds-backdrop"></div>
+    
+    <!--Backdrop for screen freezing popup-->
+</aura:component>

@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="Num1" type="Integer"></aura:attribute>
+    <lightning:input name="Number1" type="Number" label="Number 1" value="{!v.Num1}"></lightning:input>
+    <aura:attribute name="Num2" type="Integer"></aura:attribute>
+    <lightning:input name="Number2" type="Number" label="Number 2" value="{!v.Num2}"></lightning:input>
+    <aura:attribute name="Res" type="Integer" ></aura:attribute>
+    <lightning:button variant="base" label="Calculate" title="Base action" value="{!this}" onclick="{!c.getCalcResult}"/>
+    
+    Sum of {!v.Num1} and {!v.Num2} is {!v.Res}
+</aura:component>

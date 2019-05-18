@@ -1,0 +1,45 @@
+<aura:component controller="OpportunitySave"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute type="Opportunity" name="OppObj" default="{'sobjectType':'Opportunity'}"></aura:attribute>
+    <lightning:input name="OppName" aura:id="OppNameId" label="Opp Name" value="{!v.OppObj.Name}" required="true" messageWhenValueMissing="Please enter Name"></lightning:input>
+    <lightning:input name="StageName" aura:id="StageNameId" label="Stage Name" value="{!v.OppObj.StageName}" required="true" messageWhenValueMissing="Please enter stage"></lightning:input>
+    <lightning:input name="CloseDate" aura:id="CloseDateID"  type= "date" label="Close Date" value="{!v.OppObj.CloseDate}" required="true" messageWhenValueMissing="Please enter date"></lightning:input>
+    <lightning:button name="SaveOpps" label="Save Opp" onclick="{!c.SaveOpp}"></lightning:button><br></br><br></br><br></br>
+    "{!v.OppObj.Name}"
+    <aura:if isTrue="{!v.OppObj.Id}">
+         <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Account Name">Stage</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Close Date">Close Date</div>
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="slds-hint-parent">
+                    <th data-label="Opportunity Name" scope="row">
+                        <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);" tabindex="-1">"{!v.OppObj.Name}"</a></div>
+                    </th>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="Cloudhub">"{!v.OppObj.StageName}"</div>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="4/14/2015">"{!v.OppObj.CloseDate}"</div>
+                    </td>
+                    
+                </tr>
+                
+            </tbody>
+        </table>
+        <aura:set attribute="else">
+            aa
+        </aura:set>
+    </aura:if> 
+</aura:component>

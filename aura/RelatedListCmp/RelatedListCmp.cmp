@@ -1,0 +1,237 @@
+<aura:component controller="RelatedListsController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="lstPakParts" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initialiseData}"/>
+    
+    <div class="slds-form" role="list">
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">
+                        <abbr class="slds-required" title="required">* </abbr>Pak Header Name</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">
+                            
+                            <a href="javascript:void(0);">Jack Rogers</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Account Name</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">
+                            <a href="javascript:void(0);">Test Account</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Additional Approver</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">
+                            <span class="slds-icon_container slds-icon-utility-steps slds-current-color" title="False">
+                                
+                                <span class="slds-assistive-text">False</span>
+                            </span>
+                        </div>
+                        <button class="slds-button slds-button_icon" title="Edit: Security Assessment Required?">
+                            
+                            <span class="slds-assistive-text">Edit: Security Assessment Required?</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Affiliate Added Amount</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static"></div>
+                        <button class="slds-button slds-button_icon" title="Edit: Status">
+                            
+                            <span class="slds-assistive-text">Edit: Status</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Level 1 Approver</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">Disable end user personalization</div>
+                        <button class="slds-button slds-button_icon" title="Edit: Personalization Settings">
+                            
+                            <span class="slds-assistive-text">Edit: Personalization Settings</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__item" role="listitem"></div>
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Level 2 Approver</span>
+                    <div class="slds-form-element__icon">
+                        <button class="slds-button slds-button_icon">
+                            
+                            <span class="slds-assistive-text">Help</span>
+                        </button>
+                    </div>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">5367</div>
+                        <button class="slds-button slds-button_icon" title="Edit: SLA Serial Number">
+                            
+                            <span class="slds-assistive-text">Edit: SLA Serial Number</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Level 3 Approver</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">1/1/2018</div>
+                        <button class="slds-button slds-button_icon" title="Edit: SLA Expiration Date">
+                            
+                            <span class="slds-assistive-text">Edit: SLA Expiration Date</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Level 4 Approver</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">Test</div>
+                        <button class="slds-button slds-button_icon" title="Edit: Location">
+                            
+                            <span class="slds-assistive-text">Edit: Location</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Level 5 Approver</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static"></div>
+                        <button class="slds-button slds-button_icon" title="Edit: Selected Languages">
+                            
+                            <span class="slds-assistive-text">Edit: Selected Languages</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">
+                        <abbr class="slds-required" title="required">* </abbr>Level 6 Approver</span>
+                    <div class="slds-form-element__icon">
+                        <button class="slds-button slds-button_icon">
+                            
+                            <span class="slds-assistive-text">Help</span>
+                        </button>
+                    </div>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">
+                            <a href="javascript:void(0);">525 S. Lexington Ave
+                                <br/>
+                                <br/>USA
+                                <br/>
+                            </a>
+                        </div>
+                        <button class="slds-button slds-button_icon" title="Edit: Billing Address">
+                            
+                            <span class="slds-assistive-text">Edit: Billing Address</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                    <span class="slds-form-element__label">Level 7 Approver</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">
+                            <a href="javascript:void(0);">312 Constitution Place
+                                <br/>Austin, TX 78767
+                                <br/>USA
+                                <br/>
+                            </a>
+                        </div>
+                        <button class="slds-button slds-button_icon" title="Edit: Shipping Address">
+                            
+                            <span class="slds-assistive-text">Edit: Shipping Address</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-form__row">
+            <div class="slds-form__item" role="listitem">
+                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent slds-form-element_1-col">
+                    <span class="slds-form-element__label">Pak MSP</span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static slds-text-longform">
+                            <br/>
+                        </div>
+                        <button class="slds-button slds-button_icon" title="Edit: Description">
+                            
+                            
+                            <span class="slds-assistive-text">Edit: Description</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h1 style="font-size: 1.5em;">Pak Parts</h1>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Opportunity Name">Catalog Part Number</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Name">Country Code</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Close Date">Pak Part Name</div>
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.lstPakParts}" var="part">
+            	<tr class="slds-hint-parent">
+                <th data-label="Opportunity Name" scope="row">
+                    <div class="slds-truncate" title="Cloudhub">{!part.Catalog_Part_Number__c}</div>
+                </th>
+                <td data-label="Account Name">
+                    <div class="slds-truncate" title="Cloudhub">{!part.Country_Code__c}</div>
+                </td>
+                <td data-label="Close Date">
+                    <div class="slds-truncate" title="4/14/2015">{!part.Name}</div>
+                </td>
+            </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    
+</aura:component>

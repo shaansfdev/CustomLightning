@@ -1,0 +1,77 @@
+<aura:component controller ="PakHeaderSObjecController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <!-- HANDLERS START
+    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center cardHeader">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                                    <lightning:icon iconName="standard:account" alternativeText="Account" size="large" />
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <h2 class="slds-card__header-title">
+                                    <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Contacts (1)">
+                                        <span>Approval History</span>
+                                    </a>
+                                </h2>
+                            </div>
+                        </header>
+                    </div>
+                        
+                            <div class="slds-card__body slds-m-around_xxx-small slds-m-left_medium">
+                                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal listViewTable customTable">
+                                    <thead>
+                                        <tr class="slds-line-height_reset">
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="STEP NAME">STEP NAME</div>
+                                            </th>
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="DATE">DATE</div>
+                                            </th>
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="STATUS">STATUS</div>
+                                            </th>
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="ASSIGNED TO">ASSIGNED TO</div>
+                                            </th>
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="Elapsed Days">Elapsed Days</div>
+                                            </th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <aura:iteration var="Approval" items="{!v.lstAppHistory}">
+                                        <tbody>
+                                            <tr class="slds-hint-parent">
+                                                <td data-label="STEP NAME" scope="row">
+                                                    <div class="slds-truncate" title="STEP NAME">{!Approval.StepName}</div>
+                                                </td>
+                                                <td data-label="DATE">
+                                                    <div class="slds-truncate" title="DATE">{!Approval.StepDate}</div>
+                                                </td>
+                                                <td data-label="STATUS">
+                                                    <div class="slds-truncate" title="STATUS">{!Approval.StepStatus}</div>
+                                                </td>
+                                                <td data-label="ASSIGNED TO">
+                                                    <div class="slds-truncate" title="ASSIGNED TO">{!Approval.StepAssignedTo}</div>
+                                                </td> 
+                                                <td data-label="Elapsed Days">
+                                                    <div class="slds-truncate" title="Elapsed Days">{!Approval.StepElapsedDays}</div>
+                                                </td>
+                                                <td data-label="Elapsed Days">
+                                                    <div class="slds-truncate" title="Elapsed Days">{!Approval.IsApprover}</div>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </aura:iteration>
+                                </table>
+                            </div>  
+                        </article>
+    
+     HANDLERS END-->    
+    
+   
+</aura:component>

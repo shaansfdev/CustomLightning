@@ -1,0 +1,48 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+   <aura:attribute name="Cases" type="string" />
+    <aura:attribute name="layers" type="string" />
+    <aura:attribute name="Pallets" type="string" />
+    <div class="mBox">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_8-of-12" >
+                <div class="slds-media slds-p-around-medium slds-grid slds-wrap productdetails">
+                    <div class="slds-media__figure">
+                        <img src="https://5.imimg.com/data5/XZ/LT/KD/ANDROID-15564297/product-jpeg-500x500.jpg"></img>
+                        
+                    </div>
+                    <div class="slds-media__body slds-p-left__large">
+                        <p class="slds-m-bottom_small slds-m-top_x-small slds-text-heading_small"><strong>Program Name</strong></p>
+                        <p class="slds-m-vertical_small">Brand Name</p>
+                        <p class="slds-m-vertical_small">PDCNs</p>
+                        <p class="slds-m-vertical_small">
+                            <span class="slds-m-right_XX-large">SRT Start - 4/30/2019</span>
+                            <span>SRT End - 4/30/2019</span>
+                        </p>
+                        <p class="slds-m-vertical_small">order Deadline</p> 
+                    </div>
+                </div>
+            </div>
+            <div class="slds-size_4-of-12 slds-p-top_small slds-text-align_right slds-grid slds-wrap paddingFix" >
+              <h3 class="slds-size_1-of-1 slds-text-heading_small slds-m-bottom_medium"> Total ordered Amount:#### Cases
+              </h3>  
+               <div class="slds-size_1-of-1 slds-form-element slds-grid slds-wrap slds-grid_align-end slds-m-bottom_x-small " >
+                <label class="slds-form-element__label">Cases</label>
+                   <div class="slds-form-element__control"> <input placeholder="Case.." class="slds-input"></input>
+                   </div>
+                </div> 
+                <div class="slds-size_1-of-1 slds-form-element slds-grid slds-wrap slds-grid_align-end slds-m-bottom_x-small " >
+                <label class="slds-form-element__label">Layers</label>
+                   <div class="slds-form-element__control"> <input placeholder="Layers.." class="slds-input"></input>
+                   </div>
+                </div> 
+                <div class="slds-size_1-of-1 slds-form-element slds-grid slds-wrap slds-grid_align-end slds-m-bottom_x-small " >
+                <label class="slds-form-element__label">Pallets</label>
+                   <div class="slds-form-element__control"> <input placeholder="Pallets.." class="slds-input"></input>
+                   </div>
+                </div> 
+                
+            </div>
+            
+        </div>
+    </div>
+</aura:component>

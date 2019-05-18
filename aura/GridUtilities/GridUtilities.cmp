@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_2-of-3" style="background-color:red;height:50px" >
+            <span>1</span>
+        </div>
+        <div class="slds-col" style="background-color:yellow;height:50px">
+            <span>2</span>
+        </div>
+        <div class="slds-col" style="background-color:black;height:50px">
+            <span>3</span>
+        </div>
+    </div>
+</aura:component>

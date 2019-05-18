@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="Opp" type="Opportunity" default="{'sobjectType':'Opportunity'}"></aura:attribute>
+    <lightning:input name="input1" aura:id="NameId" value="{!v.Opp.Name}" label="Enter some text" required="true" messageWhenValueMissing="Please enter value"/>
+    <lightning:button label="Enter" onclick="{!c.SaveData}"></lightning:button>
+    
+</aura:component>

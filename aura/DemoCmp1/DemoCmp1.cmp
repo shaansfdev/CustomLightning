@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+In component 1
+ <lightning:button variant="base" label="Base" title="Base action" onclick="{! c.handleClick }"/>
+</aura:component>

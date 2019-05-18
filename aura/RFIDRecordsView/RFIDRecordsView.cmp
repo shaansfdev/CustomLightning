@@ -1,0 +1,175 @@
+<aura:component controller="RFIDDates"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="res" type="String" />
+    <aura:attribute name="DateId" type="String" />
+    <aura:attribute name="lstRFID" type="List"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.FetchRFIDRecords}"></aura:handler>
+    <aura:attribute name="Message" type="boolean" default="false" description="use for display no record found message"/>
+    <aura:attribute name="Result" type="String"/>
+    <aura:attribute name="searchResult" type="List" description="use for store and display account list return from server"/>
+    <aura:attribute name="searchKeyword" type="String" description="use for store user search input"/>
+    <lightning:spinner variant="brand" size="large" aura:id="Id_spinner" class="slds-hide" />
+    <aura:attribute name="TotalNumberOfRecord" type="integer" default="0" description="use for display Number of records"/>
+    <ui:scrollerWrapper class="scrollerSize">
+        <div class="innerDivWrapper">  
+            <article class="slds-card slds-m-around_medium">
+                <!-- Global Search -->
+                <div class="slds-grid slds-wrap">         
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_9-of-12">      
+                        <!--Header-->
+                        <div class="slds-card__header slds-grid slds-wrap">
+                            <div class="slds-page-header">
+                                <div class="slds-page-header__row">
+                                    <div class="slds-page-header__col-title">
+                                        <div class="slds-media">
+                                            <div class="slds-media__figure">
+                                                <span class="slds-icon_container slds-icon-standard-opportunity">
+                                                    <lightning:icon iconName="standard:event" alternativeText="Event" />
+                                                </span>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <div class="slds-page-header__name">
+                                                    <div class="slds-page-header__name-title">
+                                                        <h1>
+                                                            <span>RFID Records</span>                                                    
+                                                        </h1>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!--Header-->
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12 slds-p-top_large slds-p-left_small slds-p-bottom_xx-large slds-p-right_small">  
+                        <lightning:input label="Global Search" type="search" />
+                    </div>
+                </div>
+                <!-- Global Search -->
+                <!-- New Search Panel -->
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12 slds-p-left_small slds-p-right_small">
+                        <span>
+                            <lightning:input value="{!v.searchKeyword}" placeholder="Search Product item code.." aura:id="searchField" label="Product item code"/>
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12 slds-p-left_small slds-p-right_small">
+                        <span>
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="select-01">Select Check status</label>
+                                <div class="slds-select_container">
+                                    <ui:inputSelect  aura:id="LenseStatus" class="slds-select" />
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12 slds-p-left_small slds-p-right_small">
+                        <label class="slds-form-element__label" for="select-02">Select Check Status Description</label>                                
+                        <ui:inputSelect  aura:id="LenseStatusDesc" class="slds-select" />
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-12 slds-p-top_large" style="margin-left: .75rem;">
+                        <lightning:button onclick="{!c.Search}" variant="brand" label="Search" iconName="utility:search"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-12 slds-p-top_large slds-p-left_small">
+                        <lightning:button onclick="{!c.navigateToRFIDDate}" variant="brand" label="Back"/>                    
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-12 slds-align-middle slds-p-top_large slds-p-left_small slds-p-bottom_xx-large">
+                        <lightning:button label="Export" onclick="{!c.CreateCSV}"></lightning:button>                  
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12">               
+                    </div>
+                </div>
+                <!-- New Search Panel -->
+                
+                <aura:if isTrue="{!v.Message}">
+                    <div class="slds-notify_container slds-is-relative">
+                        <div class="slds-notify slds-notify_toast slds-theme_error" role="alert">
+                            <div class="slds-notify__content">
+                                <h2 class="slds-text-heading_small">No Records Found...</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <aura:set attribute="else">
+                        <section class="detailsTab slds-card scrollFix">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal listViewTable customTable" id="tblRFID">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate wrapField" title="RFID Name">RFID Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate wrapField" title="Account Name">Account Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate wrapField" title="Serial Number">Serial Number</div>
+                                        </th>
+                                        
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate wrapField" title="First Name">First Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate wrapField" title="Last Name">Last Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate wrapField" title="Middle Name">Middle Name</div>
+                                        </th><th class="" scope="col">
+                                        <div class="slds-truncate wrapField" title="Full Name">Full Name</div>
+                                        </th><th class="" scope="col">
+                                        <div class="slds-truncate wrapField" title="Nick Name">Nick Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate wrapField" title="Other Name">Other Name</div>
+                                        </th>
+                                        
+                                    </tr>
+                                </thead>
+                                <aura:iteration var="RFID" items="{!v.lstRFID}">
+                                    <tbody>
+                                        <tr class="slds-hint-parent">
+                                            <th data-label="Opportunity Name" scope="row">
+                                                <a href="javascript:void(0);" class="slds-card__header-link slds-hyphenate" title="Serial Number" >
+                                                    <div data-recId="{!RFID.Id}" class="slds-hyphenate wrapField" title="Serial Number" onclick="{!c.RedirectToRFIDCmp}">{!RFID.Name}</div>
+                                                </a>
+                                            </th>
+                                            <td data-label="Account Name">
+                                                <div class="slds-truncate wrapField" title="Account Name">{!RFID.Account__r.Name}</div>
+                                            </td>
+                                            <td data-label="Serial Number">
+                                                <div class="slds-truncate wrapField" title="Serial Number">00000000000001111111222222</div>
+                                            </td>
+                                            <td data-label="Account Name">
+                                                <div class="slds-truncate wrapField" title="First Name">Arnold</div>
+                                            </td>
+                                            <td data-label="Account Name">
+                                                <div class="slds-truncate wrapField" title="Last Name">schwanger</div>
+                                            </td>
+                                            <td data-label="Account Name">
+                                                <div class="slds-truncate wrapField" title="Middle Name">Jackie Chan</div>
+                                            </td>
+                                            <td data-label="Account Name">
+                                                <div class="slds-truncate wrapField" title="Full Name">Arnold schwanger Jackie Chan</div>
+                                            </td>
+                                            <td data-label="Account Name">
+                                                <div class="slds-truncate wrapField" title="Nick Name">ASJC</div>
+                                            </td>
+                                            <td data-label="Account Name">
+                                                <div class="slds-truncate wrapField" title="Other Name">Rajini Kanth</div>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                    </tbody>
+                                </aura:iteration>
+                            </table>
+                        </section>                        
+                    </aura:set>
+                </aura:if>   
+            </article>
+        </div>
+    </ui:scrollerWrapper>
+</aura:component>

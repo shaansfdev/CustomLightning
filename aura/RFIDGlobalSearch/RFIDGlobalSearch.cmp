@@ -1,0 +1,50 @@
+<aura:component 
+                controller="RFIDDates"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute type="List" name="RFIDDates"  ></aura:attribute>
+    <aura:attribute name="Result" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getRFIDGlobal}"></aura:handler>
+    
+    <div class="slds-card__body">
+         <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12 slds-p-top_large slds-p-left_small slds-p-bottom_xx-large slds-p-right_small">  
+                        <lightning:input label="Global Search" type="search" />
+                    </div>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                         <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID">
+                            <span>Product Type</span>
+                        </a>
+                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID">
+                            <span>Account Name</span>
+                        </a>
+                    </th>
+                    <th class="" scope="col">
+                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="RFID">
+                            <span>Account Type</span>
+                        </a>
+                    </th>
+                     <th class="" scope="col">
+                       
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration var="RFID" items="{!v.RFIDDates}">
+                    <tr class="slds-hint-parent">
+                        <td data-label="date" scope="row"> {!RFID.Test_change__c}
+                        </td>
+                        <td data-label="date" scope="row">
+                            {!RFID.Account__r.Type}
+                        </td> 
+                        <td data-label="date" scope="row"> {!RFID.Account__r.Name}
+                        </td>
+                          
+
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </div>
+</aura:component>

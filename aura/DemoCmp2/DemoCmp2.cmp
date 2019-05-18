@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+In cmp 2
+<br></br>
+<aura:iteration var="num" items="1,2,3,4,5,6,7,8,9">
+    {!num}<br></br>
+
+    </aura:iteration>
+
+</aura:component>

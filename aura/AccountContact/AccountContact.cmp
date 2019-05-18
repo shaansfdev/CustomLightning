@@ -1,0 +1,42 @@
+<aura:component controller = "FetchContacts" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="ContList" type="List"></aura:attribute>
+     <aura:attribute name="recordId" type="String"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.getContacts}"></aura:handler>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr clpass="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Contact Id">Contact Id</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Contact Name">Contact Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Email">Email</div>
+                </th>
+            </tr>
+        </thead>
+        <aura:iteration items="{!v.ContList}" var="item">
+        <tbody>
+            <tr class="slds-hint-parent">
+                <th data-label="Account Id" scope="row">
+                    <div class="slds-truncate" title="Contact Id"><a href="javascript:void(0);" tabindex="-1">{!item.id}</a></div>
+                </th>
+                <td data-label="Account Name">
+                    <div class="slds-truncate" title="Account Name">{!item.LastName}</div>
+                </td>
+                <td data-label="Industry">
+                    <div class="slds-truncate" title="Industry">{!item.Phone}</div>
+                </td>
+                <td data-label="AnnualRevenue">
+                    <div class="slds-truncate" title="20%">{!item.Email}</div>
+                </td>
+            </tr>
+            
+        </tbody>
+            </aura:iteration>
+    </table>
+</aura:component>

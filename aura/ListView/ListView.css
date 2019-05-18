@@ -1,0 +1,85 @@
+.THIS .slds-icon.slds-icon-text-default{width:14px; height:14px;}
+.THIS .smalldropDown .slds-icon-utility-down{margin-left:4px;}
+.THIS .smalldropDown .slds-icon-utility-down .slds-icon.slds-icon-text-default{width:8px; height:8px;}
+.THIS .slds-page-header{width:100%; background: #f3f2f2;}
+.THIS .slds-card__header{padding:0px; margin-bottom:0;}
+.THIS .slds-card__body{margin-bottom:0px;}
+.THIS .slds-card__body_inner, .THIS .slds-card__body--inner{padding:0;}
+
+.THIS .listViewTable thead th, .THIS .listViewTable tbody td{max-width:125px; white-space:normal;}
+/* changes 27/3/19 */
+.THIS .listViewTable thead th, .THIS .listViewTable tbody td{max-width:125px; white-space:normal;}
+.THIS ol.listBox li{padding-left:1.5rem; padding-right:1.5rem; min-height:60px; background:#fff; border-bottom: 1px solid rgb(221, 219, 218);}
+.THIS .newBtn{right:0px;}
+.THIS .w100p{width:100%;}
+.THIS .accountFix{padding-left:1rem!important; padding-top:0.75rem!important;}
+/* changes 27/3/19 */
+@media only screen and (min-width:768px) and (max-width:875px){
+    .THIS .fullWidth{width:100%; overflow-x:auto;}
+}
+
+@media only screen and (max-width:768px){
+    .THIS .listViewTable thead th, .THIS .listViewTable tbody td{
+        max-width:100%!important;
+    }
+}
+
+
+@media only screen and (max-width:767px){
+    .THIS .slds-page-header__col-controls, .THIS .slds-page-header__col-meta{width:100%;}
+    .THIS .slds-page-header__controls{float:right;}
+}
+
+
+@media (max-width: 48em){
+    .THIS .customTable.slds-table_bordered tbody td, 
+	.THIS .customTable.slds-table_bordered tbody th, 
+	.THIS .customTable.slds-table--bordered tbody td, 
+	.THIS .customTable.slds-table--bordered tbody th{
+    border-top: 0px solid #e5e5e5!important;
+	}
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td:before, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td:before {
+        float: left;
+        width:35%; 
+        text-align:left;
+        text-transform:capitalize;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal th, 
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal th, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td{
+        padding:0.15rem;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal .slds-truncate, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal .slds-truncate {
+        width:50%;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td{
+        text-align:left;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal th:first-child:before{
+        display:none;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal th:first-child div.slds-truncate{
+        width:100%; text-transform:uppercase; font-size:14px;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal tr, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal tr{
+        border-top:0px;
+        border-bottom:1px solid #e5e5e5;
+        margin-top:0.75rem;
+        margin-bottom:1rem;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal tr:last-child, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal tr:last-child{
+        border-top:0px;
+        border-bottom:0px;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td:last-child:before, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td:last-child:before {
+        padding-bottom:1rem;
+    }
+    
+}

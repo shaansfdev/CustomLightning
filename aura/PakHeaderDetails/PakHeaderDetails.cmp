@@ -1,0 +1,280 @@
+<aura:component controller="RelatedListsController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="lstPakParts" type="List"/>
+    <aura:attribute name="lstPakHeaders" type="List"/>
+    <aura:attribute name="lstAppHistory" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initialiseData}"/>
+    <div class="slds-float--right">
+        <lightning:button variant="success" label="Approve" type="submit" title="Approve" iconPosition="right" onclick="{! c.handleClick }" ></lightning:button> 
+        <lightning:button variant="success" label="Approve" type="submit" title="Approve" iconPosition="right" onclick="{! c.handleClick }" ></lightning:button> 
+    </div>
+    <div class="slds-p-vertical_large slds-p-horizontal_medium">
+        <div class="slds-form" role="list">
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">
+                            <abbr class="slds-required" title="required">*</abbr>Pak Header Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <a href="javascript:void(0);">Jack Rogers</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Account Name</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <a href="javascript:void(0);">Test Account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Additional Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <div class="slds-form-element__static">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Affiliate Added Amount</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Level 1 Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">Disable end user personalization</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem"></div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Level 2 Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">5367</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Level 3 Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">1/1/2018</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Level 4 Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">Test</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Level 5 Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">
+                            <abbr class="slds-required" title="required">*</abbr>Level 6 Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <a href="javascript:void(0);">525 S. Lexington Ave
+                                    <br/>Burlington, NC 27215
+                                    <br/>USA
+                                    <br/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                        <span class="slds-form-element__label">Level 7 Approver</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static">
+                                <a href="javascript:void(0);">312 Constitution Place
+                                    <br/>Austin, TX 78767
+                                    <br/>USA
+                                    <br/>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form__row">
+                <div class="slds-form__item" role="listitem">
+                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent slds-form-element_1-col">
+                        <span class="slds-form-element__label">PAK MSP</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__static slds-text-longform">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <!-- Responsive Tables -->
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center cardHeader">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                            <lightning:icon iconName="standard:account" alternativeText="Account" size="large" />
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Contacts (1)">
+                                <span>Pak Parts</span>
+                            </a>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="catalogNo">Catalog Part Number</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Country Code">Country Code</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="PAKPartName">PAK Part Name</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.lstPakParts}" var="part">
+                            <tr class="slds-hint-parent">
+                                <td data-label="date" scope="row">
+                                    <div class="slds-truncate" title="{!part.Catalog_Part_Number__c}">{!part.Catalog_Part_Number__c}</div>
+                                </td>
+                                <td data-label="field">
+                                    <div class="slds-truncate" title="{!part.Country_Code__c}">{!part.Country_Code__c}</div>
+                                </td>
+                                <td data-label="user">
+                                    <div class="slds-truncate" title="{!part.Name}">{!part.Name}</div>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+        <br/>
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center cardHeader">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                            <lightning:icon iconName="standard:approval" alternativeText="Approval" size="large" />
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Contacts (1)">
+                                <span>Approval History</span>
+                            </a>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="date">Date</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="field">Field</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="user">User</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="oValue">Original Value</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="nValue">New Value</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="slds-hint-parent">
+                            <td data-label="date" scope="row">
+                                <div class="slds-truncate" title="1/10/2019 1.27pm">1/10/2019 1.27pm</div>
+                            </td>
+                            <td data-label="field">
+                                <div class="slds-truncate" title="Created">Created</div>
+                            </td>
+                            <td data-label="user">
+                                <div class="slds-truncate" title="Vikram Hada">Vikram Hada</div>
+                            </td>
+                            <td data-label="oValue">
+                                <div class="slds-truncate" title="">&nbsp;</div>
+                            </td> 
+                            <td data-label="nValue">
+                                <div class="slds-truncate" title="">&nbsp;</div>
+                            </td>
+                        </tr>
+                        <tr class="slds-hint-parent">
+                            <td data-label="date" scope="row">
+                                <div class="slds-truncate" title="1/10/2019 1.27pm">1/10/2019 1.27pm</div>
+                            </td>
+                            <td data-label="field">
+                                <div class="slds-truncate" title="Created">Sync to GoSpotCheck</div>
+                            </td>
+                            <td data-label="user">
+                                <div class="slds-truncate" title="Vikram Hada">Vikram Hada</div>
+                            </td>
+                            <td data-label="oValue">
+                                <div class="slds-truncate" title="">&nbsp;</div>
+                            </td> 
+                            <td data-label="nValue">
+                                <div class="slds-truncate" title="">&nbsp;</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </div>
+</aura:component>

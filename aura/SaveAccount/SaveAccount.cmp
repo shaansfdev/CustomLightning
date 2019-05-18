@@ -1,0 +1,12 @@
+<aura:component controller="saveRecordController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute type="String" name="AccountName"></aura:attribute>
+    <aura:attribute type="object" name="Account"></aura:attribute>
+    
+    <aura:attribute name="obj" type="contact" default="{'sobjectType':'contact'}"/>
+    
+    <lightning:input name="lastName" label="Lst Name" value="{!v.obj.LastName}"/>
+    <lightning:button name="sve" label="Create Record" onclick="{!c.createDataRecord}"/>
+    
+    
+</aura:component>

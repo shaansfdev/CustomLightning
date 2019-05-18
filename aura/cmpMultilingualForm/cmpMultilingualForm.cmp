@@ -1,0 +1,62 @@
+<aura:component controller="MultilingualFormController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <aura:attribute type="ControlLabels__mdt" name="objLabels" />
+    <aura:attribute type="MultilingualData__c" name="objData" default="{ 'sobjectType': 'Contact' }" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}"></aura:handler>
+    <div class="slds-card slds-m-around_medium">
+        <div class="slds-card__header slds-grid slds-wrap">
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-opportunity">
+                                    <lightning:icon iconName="standard:event" alternativeText="Event" />
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span><lightning:formattedText value="{! v.objLabels.FormHeader__c }" /></span>                                                    
+                                        </h1>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:formattedText value="{! v.objLabels.lblName__c }" /></span>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:input label="" variant="label-hidden" value="{! v.objData.Name__c }" /></span>               
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:formattedText value="{! v.objLabels.lblEmail__c }" /></span>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:input label="" type="email" variant="label-hidden" value="{! v.objData.Email__c }" /></span>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:formattedText value="{! v.objLabels.lblPhone__c }" /></span>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:input label="" type="tel" variant="label-hidden" value="{! v.objData.Phone__c }" /></span>               
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:formattedText value="{! v.objLabels.lblDOB__c }" /></span>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-4 slds-p-left_small slds-p-right_small">
+                <span><lightning:input label="" type="date" variant="label-hidden" value="{! v.objData.Date_of_Birth__c }" /></span>
+            </div>
+        </div>
+    </div>
+</aura:component>

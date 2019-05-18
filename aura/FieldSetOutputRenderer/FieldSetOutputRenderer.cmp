@@ -1,0 +1,13 @@
+<aura:component controller ="FieldSetOutputRendererController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <!-- Attributes -->
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="FieldSet" type="string" default="PakHeaderDetailFields"/>
+    <aura:attribute name="ObjectName" type="string" default="PAK_Header__c"/>
+    <aura:attribute name="SObjectList" type="PAK_Header__c[]"/>
+    <!-- Attributes -->
+    
+    <!-- HANDLERS START-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-form slds-p-horizontal_medium" role="list" aura:id="detailView"></div>
+</aura:component>

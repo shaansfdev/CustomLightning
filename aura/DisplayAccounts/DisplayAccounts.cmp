@@ -1,0 +1,61 @@
+<aura:component controller="FetchAccounts"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:Attribute name="ListAccount" type="List"></aura:Attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.getAccounts}"></aura:handler>
+    <aura:iteration items="{!v.ListAccount}" var="item">
+        {!item.Id}<br/>
+        {!item.Name}<br/>
+        {!item.Industry}<br/>
+        {!item.AnnualRevenue}<br/>
+    </aura:iteration>
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <!-- handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.getAccounts}"/>
+    <!-- the container element determine the height of the datatable -->
+    <lightning:datatable
+                         keyField="id"
+                         data="{!v.data}"
+                         columns="{!v.columns }"
+                         hideCheckboxColumn="true"/>
+    
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Id">Account Id</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Industry">Industry</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Annual Revenue">Annual Revenue</div>
+                </th>
+            </tr>
+        </thead>
+        <aura:iteration items="{!v.ListAccount}" var="item">
+        <tbody>
+            <tr class="slds-hint-parent">
+                <th data-label="Account Id" scope="row">
+                    <div class="slds-truncate" title="AccountID"><a href="javascript:void(0);" tabindex="-1">{!item.id}</a></div>
+                </th>
+                <td data-label="Account Name">
+                    <div class="slds-truncate" title="Account Name">{!item.Name}</div>
+                </td>
+                <td data-label="Industry">
+                    <div class="slds-truncate" title="Industry">{!item.Industry}</div>
+                </td>
+                <td data-label="AnnualRevenue">
+                    <div class="slds-truncate" title="20%">{!item.AnnualRevenue}</div>
+                </td>
+            </tr>
+            
+        </tbody>
+            </aura:iteration>
+    </table>
+</aura:component>

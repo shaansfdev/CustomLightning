@@ -1,0 +1,66 @@
+.THIS.scrollerSize {
+    height: 100%;
+    width: 100%;
+    border-radius: 1px;
+}
+.THIS.detailsTab{background: white; padding:10px; margin:-10px;}
+.THIS.slds-card{border:0px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0); height:calc(100vh - 135px);}
+.THIS .scrollFix{ background: white; overflow-y: scroll;overflow-x: auto;height: 100% !important;}
+.THIS .customTable{
+    overflow: scroll;
+}
+.THIS .wrapField{
+    white-space: normal!important;
+}
+@media (max-width: 48em){
+    .THIS .customTable.slds-table_bordered tbody td, 
+	.THIS .customTable.slds-table_bordered tbody th, 
+	.THIS .customTable.slds-table--bordered tbody td, 
+	.THIS .customTable.slds-table--bordered tbody th{
+    border-top: 0px solid #e5e5e5!important;
+	}
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td:before, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td:before {
+        float: left!important;
+        width:35%!important; 
+        text-align:left!important;
+        text-transform:capitalize!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal th, 
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal th, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td{
+        padding:0.15rem!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal .slds-truncate, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal .slds-truncate {
+        width:50%!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td{
+        text-align:left!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal th:first-child:before{
+        display:none!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal th:first-child div.slds-truncate{
+        width:100%!important; text-transform:uppercase!important; font-size:14px!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal tr, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal tr{
+        border-top:0px!important;
+        border-bottom:1px solid #e5e5e5!important;
+        margin-top:0.75rem!important;
+        margin-bottom:1rem!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal tr:last-child, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal tr:last-child{
+        border-top:0px!important;
+        border-bottom:0px!important;
+    }
+    .THIS .customTable.slds-max-medium-table_stacked-horizontal td:last-child:before, 
+    .THIS .customTable.slds-max-medium-table--stacked-horizontal td:last-child:before {
+        padding-bottom:1rem!important;
+    }
+    
+}

@@ -1,0 +1,52 @@
+<aura:component controller="ExportTableAccounts" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="AccountList" Type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.GetAccounts}"></aura:handler>
+    <ui:scrollerWrapper class="scrollerSize">
+        <br></br>
+        <article class="slds-card slds-m-around_medium">
+            <div class="slds-caard__header slds-grid slds-wrap wrapField slds-hyphenate"> 
+                Shankarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr<br></br>
+                Rani
+            </div>
+            <div class="slds-m-around_medium">
+                abc
+            </div>
+            <section class="detailsTab slds-card scrollFix">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-max-medium-table_stacked-horizontal listViewTable customTable" id="tblRFID">
+                    <thead>
+                        <tr>
+                            <th>
+                                Account Name
+                                
+                            </th>
+                            <th>
+                                Account Status
+                                
+                            </th>
+                            <th>
+                                Account Type
+                                
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.AccountList}" var="item">
+                        <tr>
+                            <td data-label="Account Name" Title ="Account Name">
+                               {!item.Name}
+                            </td>
+                            <td data-label="Account Status" Title ="Account Stauts">
+                                {!item.Industry}
+                            </td >
+                            <td data-label="Account Type" Title ="Account Type">
+                                {!item.Type}
+                            </td>
+                        </tr>
+                       </aura:iteration> 
+                    </tbody>
+                    
+                </table>
+            </section>
+        </article>
+    </ui:scrollerWrapper>
+</aura:component>

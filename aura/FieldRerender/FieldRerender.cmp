@@ -1,0 +1,39 @@
+<aura:component >
+    <!-- HANDLERS START-->
+    <aura:handler name="init" value="{!this}" action="{!c.FieldToBeRendered}" />
+    <!-- HANDLERS END-->
+    
+    <!-- ATTRIBUTES START-->
+    <aura:attribute name="FirstTagToRender" type="string"/>
+    <aura:attribute name="SecondTagToRender" type="string"/>
+    <aura:attribute name="FirstTagAttributes" type="string"/>
+    <aura:attribute name="SecondTagAttributes" type="string"/>
+    <aura:attribute name="FirstTagLabel" type="string"/>
+    <aura:attribute name="SecondTagLabel" type="string"/>
+    <aura:attribute name="FirstisEditable" type="boolean"/>
+    <aura:attribute name="SecondisEditable" type="boolean"/>
+    <!-- ATTRIBUTES END-->
+    
+    <!--
+    <div id="{!v.id}" class="slds-has-divider-bottom" style="border-bottom:1px solid rgb(216, 221, 230);">
+        <aura:if isTrue="{!!v.isEditable}">
+            <span class="slds-form-element__label">{!v.TagLabel}</span> 
+        </aura:if>    
+        <div aura:id="tagspace" class="slds-form-element__control"></div>
+    </div> -->
+    <div class="slds-form__row">
+        <div class="slds-form__item" role="listitem">
+            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                <span class="slds-form-element__label">{!v.FirstTagLabel}</span>
+                <div aura:id="firsttagspace" class="slds-form-element__control"></div>
+            </div>
+        </div>
+        <div class="slds-form__item" role="listitem">
+            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                <span class="slds-form-element__label">{!v.SecondTagLabel}</span>
+                <div aura:id="secondtagspace" class="slds-form-element__control"></div>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>
